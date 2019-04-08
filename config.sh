@@ -1,3 +1,3 @@
-#!/etc/bash
-
+#!/bin/bash
+ln -s `pwd`/vimrc ~/.vimrc	
 
