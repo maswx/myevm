@@ -1,5 +1,3 @@
-
-
 " 创建新文件时候自动执行
 autocmd BufNewFile,BufRead *.v set filetype=verilog
 autocmd BufNewFile *.v,*.py,*.m,*.[ch],*.sh,*.cpp exec "call SetTitle()"
@@ -50,7 +48,8 @@ set imcmdline
 " 语法高亮                                                         
 syntax on                                                          
 " 深色背景                                                         
-color evening                                                      
+
+color evening 
 " 检测文件类型                                                     
 filetype on                                                        
 " 根据文件类型加载对应的插件                                       
@@ -70,7 +69,6 @@ set cindent
 " set expandtab " tab转换为空格                                                    
 highlight CursorLine term=reverse
 highlight CursorColumn term=reverse
-" colorscheme darkblue
 "代码补全
 set completeopt=preview,menu 
 "自动保存
@@ -79,7 +77,7 @@ set autowrite
 set foldcolumn=0
 set foldmethod=indent 
 set foldlevel=3 
-set foldenable              " 开始折叠
+"set foldenable              " 开始折叠
 " 不要使用vi的键盘模式，而是vim自己的
 set nocompatible
 " 去掉输入错误的提示声音
