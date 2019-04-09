@@ -1,30 +1,37 @@
 " 创建新文件时候自动执行
-autocmd BufNewFile,BufRead *.v set filetype=verilog
-autocmd BufNewFile *.v,*.py,*.m,*.[ch],*.sh,*.cpp exec "call SetTitle()"
-
+autocmd BufNewFile,BufRead *.v,*.[ch],*.cpp set filetype=class_c
+autocmd BufNewFile,BufRead *.py,*.sh set filetype=py_sh
+autocmd BufNewFile,BufRead *.m set filetype=matlab
+autocmd BufNewFile *.v,*.py,*.m,*.[ch],*.sh,*.cpp exec ":call SetTitle()"
 func SetTitle()
-	if &filetype == 'cpp' || &filetype == 'c' || &filetype == 'h' || &filetype == 'verilog'
-		call setline(1,         "//========================================================================")
-		call append(line(".")   "//        author   : .. xiao                               ")
-		call append(line(".")+1,"//        email    : maswell@maswll.tech     ")
-		call append(line(".")+2,"//        creattime: ".strftime("%c"))
+	if &filetype == 'class_c'
+		call setline(1, "//========================================================================")
+		call setline(2, "//        author   : xiaomh                               ")
+		call setline(3, "//        email    : maswell@maswll.tech     ")
+		call setline(4, "//        creattime: ".strftime("%c"))
+		call setline(5, "//========================================================================")
 	endif
-	if &filetype == 'sh' || &filetype == 'py'
-		call setline(1,         "#========================================================================")
-		call append(line(".")   "#        author   : .. xiao                               ")
-		call append(line(".")+1,"#        email    : maswell@maswll.tech     ")
-		call append(line(".")+2,"#        creattime: ".strftime("%c"))
-	end
-	if &filetype == 'm'
-		call setline(1,         "%========================================================================")
-		call append(line(".")   "%        author   : .. xiao                               ")
-		call append(line(".")+1,"%        email    : maswell@maswll.tech     ")
-		call append(line(".")+2,"%        creattime: ".strftime("%c"))
-	end
+	if &filetype == 'py_sh'
+		call setline(1,"#========================================================================")
+		call setline(2,"#        author   : xiaomh                               ")
+		call setline(3,"#        email    : maswell@maswll.tech     ")
+		call setline(4,"#        creattime: ".strftime("%c"))
+		call setline(5,"#========================================================================")
+	endif
+	if &filetype == 'matlab'
+		call setline(1,"%========================================================================")
+		call setline(2,"%        author   : xiaomh                               ")
+		call setline(3,"%        email    : maswell@maswll.tech     ")
+		call setline(4,"%        creattime: ".strftime("%c"))
+		call setline(5,"%========================================================================")
+	endif
 	autocmd BufNewFile * normal G
 endfunc
 
- 
+" reopening a file                                                         
+if has("autocmd")                                                          
+	au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif                                                        
+endif 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 ""实用设置
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -75,8 +82,8 @@ set completeopt=preview,menu
 set autowrite
 " 设置在状态行显示的信息
 set foldcolumn=0
-set foldmethod=indent 
-set foldlevel=3 
+" set foldmethod=indent 
+"set foldlevel=3 
 "set foldenable              " 开始折叠
 " 不要使用vi的键盘模式，而是vim自己的
 set nocompatible
