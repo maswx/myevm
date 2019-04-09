@@ -1,6 +1,7 @@
 " 创建新文件时候自动执行
 autocmd BufNewFile,BufRead *.v,*.[ch],*.cpp set filetype=class_c
-autocmd BufNewFile,BufRead *.py,*.sh set filetype=py_sh
+autocmd BufNewFile,BufRead *.py set filetype=python_
+autocmd BufNewFile,BufRead *.sh,*.bash set filetype=shell_
 autocmd BufNewFile,BufRead *.m set filetype=matlab
 autocmd BufNewFile *.v,*.py,*.m,*.[ch],*.sh,*.cpp exec ":call SetTitle()"
 func SetTitle()
@@ -11,12 +12,23 @@ func SetTitle()
 		call setline(4, "//        creattime: ".strftime("%c"))
 		call setline(5, "//========================================================================")
 	endif
-	if &filetype == 'py_sh'
-		call setline(1,"#========================================================================")
-		call setline(2,"#        author   : xiaomh                               ")
-		call setline(3,"#        email    : maswell@maswll.tech     ")
-		call setline(4,"#        creattime: ".strftime("%c"))
-		call setline(5,"#========================================================================")
+	if &filetype == 'python_'
+		call setline(1,"#!/usr/bin/python3")
+		call setline(2,"# -*- coding: utf-8 -*-")
+		call setline(3,"#========================================================================")
+		call setline(4,"#        author   : xiaomh                               ")
+		call setline(5,"#        email    : maswell@maswll.tech     ")
+		call setline(6,"#        creattime: ".strftime("%c"))
+		call setline(7,"#========================================================================")
+	endif
+	if &filetype == 'shell_'
+		call setline(1,"#!/bin/bash")
+		call setline(2,"# -*- coding: utf-8 -*-")
+		call setline(3,"#========================================================================")
+		call setline(4,"#        author   : xiaomh                               ")
+		call setline(5,"#        email    : maswell@maswll.tech     ")
+		call setline(6,"#        creattime: ".strftime("%c"))
+		call setline(7,"#========================================================================")
 	endif
 	if &filetype == 'matlab'
 		call setline(1,"%========================================================================")
