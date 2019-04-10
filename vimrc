@@ -45,9 +45,9 @@ if has("autocmd")
 	au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif                                                        
 endif 
 """快速插入 log 
-iab ilog //[log message by <c-r>=$USER<cr>@<c-r>=strftime("%Y-%m-%d %H:%M:%S")<cr>]:
-iab ilogp #[log message by <c-r>=$USER<cr>@<c-r>=strftime("%Y-%m-%d %H:%M:%S")<cr>]:
-iab ilogm %[log message by <c-r>=$USER<cr>@<c-r>=strftime("%Y-%m-%d %H:%M:%S")<cr>]:
+iab ilog //[ log by <c-r>=$USER<cr>@<c-r>=strftime("%Y%m%d %H:%M")<cr>]:
+iab ilogp #[ log by <c-r>=$USER<cr>@<c-r>=strftime("%Y%m%d %H:%M")<cr>]:
+iab ilogm %[ log by <c-r>=$USER<cr>@<c-r>=strftime("%Y%m%d %H:%M")<cr>]:
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 ""实用设置
