@@ -1,8 +1,8 @@
 " 创建新文件时候自动执行
-autocmd BufNewFile,BufRead *.v,*.[ch],*.cpp set filetype=class_c
-autocmd BufNewFile,BufRead *.py set filetype=python_
-autocmd BufNewFile,BufRead *.sh,*.bash set filetype=shell_
-autocmd BufNewFile,BufRead *.m set filetype=matlab
+autocmd BufNewFile *.v,*.[ch],*.cpp set filetype=class_c
+autocmd BufNewFile *.py set filetype=python_
+autocmd BufNewFile *.sh,*.bash set filetype=shell_
+autocmd BufNewFile *.m set filetype=matlab
 autocmd BufNewFile *.v,*.py,*.m,*.[ch],*.sh,*.cpp exec ":call SetTitle()"
 func SetTitle()
 	if &filetype == 'class_c'
@@ -13,7 +13,7 @@ func SetTitle()
 		call setline(5, "//========================================================================")
 	endif
 	if &filetype == 'python_'
-		call setline(1,"#!/usr/bin/python3")
+		call setline(1,"#!/usr/bin/python")
 		call setline(2,"# -*- coding: utf-8 -*-")
 		call setline(3,"#========================================================================")
 		call setline(4,"#        author   : xiaomh                               ")
@@ -44,6 +44,11 @@ endfunc
 if has("autocmd")                                                          
 	au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif                                                        
 endif 
+"""快速插入 log 
+iab ilog //[log message by <c-r>=$USER<cr>@<c-r>=strftime("%Y-%m-%d %H:%M:%S")<cr>]:
+iab ilogp #[log message by <c-r>=$USER<cr>@<c-r>=strftime("%Y-%m-%d %H:%M:%S")<cr>]:
+iab ilogm %[log message by <c-r>=$USER<cr>@<c-r>=strftime("%Y-%m-%d %H:%M:%S")<cr>]:
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 ""实用设置
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -94,9 +99,9 @@ set completeopt=preview,menu
 set autowrite
 " 设置在状态行显示的信息
 set foldcolumn=0
-" set foldmethod=indent 
-"set foldlevel=3 
-"set foldenable              " 开始折叠
+set foldmethod=indent 
+set foldlevel=3 
+set foldenable              " 开始折叠
 " 不要使用vi的键盘模式，而是vim自己的
 set nocompatible
 " 去掉输入错误的提示声音
