@@ -1,0 +1,32 @@
+#!/bin/bash
+# -*- coding: utf-8 -*-
+clear
+clogfile=`find . .*.gitcmlog | grep -w '.\/.*.gitcmlog'` #找出./.*.gitcmlog文件
+modifile=`git status | grep -w 'modified:' | sed 's/modified://g'`
+
+for logfn in $clogfile
+do
+	for modifilename in $modifile 
+	do
+		modfn_not=`echo $modifilename | sed 's/\.//g' | sed 's/\///g' | sed 's/\.//g'`
+		logfn_not=`echo $logfn | sed 's/\.gitcmlog//g' | sed 's/\///g' | sed 's/\.//g'`
+		# echo $modfn_not ___mod
+		# echo $logfn_not ___log
+		if [ $modfn_not == $logfn_not ]
+		then
+			cmt_log=`cat $logfn | sed 's/\n/ /g' ` 
+			echo \.\/$modifilename
+			cmda=`git commit -F \.\/$logfn \.\/$modifilename`
+			echo $cmda
+			# $cmda
+			# cmda=`echo rm $logfn`
+			# $cmda
+		fi
+	done
+done
+modifile=`git status | grep -w 'modified:' | sed 's/modified://g'`
+for modifilename in $modifile 
+do
+	echo plase add $modifilename\'s log and use comand git commit -m \"\" $modifilename
+done
+
