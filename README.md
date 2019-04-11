@@ -29,7 +29,7 @@ I Shared some command scripts in ./scripts.
 gitcm # the same command as git commit -F .filename.gitcmlog filename
 ```
 the command `gitcm` use with vim command `:clog` only. 
-actually ,the file named `.*.gitcmlog` will be created or modified when you use command `:clog` in vim 
+actually ,the file named `.*.gitcmlog` will be created or modified when you use command `:clog` in vim. 
 the command `gitcm` automatically searches for files named `.*.gitcmlog` and `*` which you want commit to git .finally execute the normal git command `git commit -F $.filename.gitcmlog $filename`
 
 
