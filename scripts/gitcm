@@ -33,6 +33,7 @@ done
 modifile=`git status | grep -w 'modified:' | sed 's/modified://g'`
 for modifilename in $modifile 
 do
-	echo please add $modifilename\'s log file \(use command \':clog\' in vim normal mode\) or use comand git commit -m \"\" $modifilename
+	#echo please add $modifilename\'s log file \(use command \':clog\' in vim normal mode\) or use comand git commit -m \"\" $modifilename
+	git commit -m "no any commit message. " \.\/$modifilename
 done
 
