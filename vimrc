@@ -50,10 +50,12 @@ ia ilog [ log by <c-r>=$USER<cr>@<c-r>=strftime("%Y%m%d %H:%M")<cr>]:
 let $FILENAME=expand("%") " commit log
 ca clog  <ESC>:new<CR><ESC>10<C-W>-:edit .${FILENAME}.gitcmlog<CR> 
 " shift
-inoremap <M-j> <Up>
-inoremap <M-k> <Down>
-inoremap <M-h> <Left>
-inoremap <M-l> <Right>
+inorea ;; <BS><ESC>  a <BS><BS>
+inoremap ( () <ESC><Left>i
+inoremap [ [] <ESC><Left>i
+inoremap { {} <ESC><Left>i
+
+inorea .. <ESC>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 ""实用设置
