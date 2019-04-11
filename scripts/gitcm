@@ -16,16 +16,16 @@ do
 		then
 			cmt_log=`cat $logfn | sed 's/\n/ /g' ` 
 			echo commiting ... \.\/$modifilename
-			cmda=`git commit -F \.\/$logfn \.\/$modifilename`
-			echo $cmda
-			echo rm $logfn
+			git commit -F \.\/$logfn \.\/$modifilename
+			echo comimit ok. rm $logfn
 			rm $logfn
 		fi
 	done
 done
+# 更新modified
 modifile=`git status | grep -w 'modified:' | sed 's/modified://g'`
 for modifilename in $modifile 
 do
-	echo plase add $modifilename\'s log and use comand git commit -m \"\" $modifilename
+	echo plase add $modifilename\'s log file \(use command \':clog\' in vim normal mode\) or use comand git commit -m \"\" $modifilename
 done
 
