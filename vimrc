@@ -44,14 +44,21 @@ endfunc
 if has("autocmd")                                                          
 	au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif                                                        
 endif 
-"""快速插入 log 
-iab ilog //[ log by <c-r>=$USER<cr>@<c-r>=strftime("%Y%m%d %H:%M")<cr>]:
-iab ilogp #[ log by <c-r>=$USER<cr>@<c-r>=strftime("%Y%m%d %H:%M")<cr>]:
-iab ilogm %[ log by <c-r>=$USER<cr>@<c-r>=strftime("%Y%m%d %H:%M")<cr>]:
+"""快速插入 log
+ia ilog [ log by <c-r>=$USER<cr>@<c-r>=strftime("%Y%m%d %H:%M")<cr>]:
+"""快速插入commit log
+let $FILENAME=expand("%") " commit log
+ca clog  <ESC>:new<CR><ESC>10<C-W>-:edit .${FILENAME}.gitcmlog<CR> 
+" shift
+inoremap <M-j> <Up>
+inoremap <M-k> <Down>
+inoremap <M-h> <Left>
+inoremap <M-l> <Right>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 ""实用设置
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+autocmd InsertEnter * se cul
 " 设置字符编码                                                                
 set fileencoding=utf-8                                             
 set fileencodings=utf-8,cp936,euc-cn,gb2312,gb18030,latin1                      
