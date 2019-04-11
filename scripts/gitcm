@@ -15,12 +15,11 @@ do
 		if [ $modfn_not == $logfn_not ]
 		then
 			cmt_log=`cat $logfn | sed 's/\n/ /g' ` 
-			echo \.\/$modifilename
+			echo commiting ... \.\/$modifilename
 			cmda=`git commit -F \.\/$logfn \.\/$modifilename`
 			echo $cmda
-			# $cmda
-			# cmda=`echo rm $logfn`
-			# $cmda
+			echo rm $logfn
+			rm $logfn
 		fi
 	done
 done
