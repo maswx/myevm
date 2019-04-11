@@ -3,6 +3,11 @@
 clear
 clogfile=`find . .*.gitcmlog | grep -w '.\/.*.gitcmlog'` #找出./.*.gitcmlog文件
 modifile=`git status | grep -w 'modified:' | sed 's/modified://g'`
+if [ ! -n $modifile ]; then
+	echo no file modified
+	echo please use git add command
+  	exit
+fi
 
 for logfn in $clogfile
 do
@@ -26,6 +31,6 @@ done
 modifile=`git status | grep -w 'modified:' | sed 's/modified://g'`
 for modifilename in $modifile 
 do
-	echo plase add $modifilename\'s log file \(use command \':clog\' in vim normal mode\) or use comand git commit -m \"\" $modifilename
+	echo please add $modifilename\'s log file \(use command \':clog\' in vim normal mode\) or use comand git commit -m \"\" $modifilename
 done
 
