@@ -45,10 +45,10 @@ if has("autocmd")
 	au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif                                                        
 endif 
 """快速插入 log
-ia ilog [ log by <c-r>=$USER<cr>@<c-r>=strftime("%Y%m%d %H:%M")<cr>]:
+inorea ilog [ log by <c-r>=$USER<cr>@<c-r>=strftime("%Y%m%d %H:%M")<cr>]:
 """快速插入commit log
 let $FILENAME=expand("%") " commit log
-ca clog  <ESC>:new<CR><ESC>10<C-W>-:edit .${FILENAME}.gitcmlog<CR> 
+cnorea clog  <ESC>:new<CR><ESC>10<C-W>-:edit .${FILENAME}.gitcmlog<CR> 
 " shift
 inorea ;; <BS><ESC>  a <BS><BS>
 inoremap ( () <ESC><Left>i
