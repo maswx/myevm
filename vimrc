@@ -50,12 +50,10 @@ inorea ilog [ log by <c-r>=$USER<cr>@<c-r>=strftime("%Y%m%d %H:%M")<cr>]:
 let $FILENAME=expand("%") " commit log
 cnorea clog  <ESC>:new<CR><ESC>10<C-W>-:edit .${FILENAME}.gitcmlog<CR> 
 " shift
-inorea ;; <BS><ESC>  a <BS><BS>
 inoremap ( () <ESC><Left>i
 inoremap [ [] <ESC><Left>i
 inoremap { {} <ESC><Left>i
 
-inorea .. <ESC>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 ""实用设置
@@ -109,7 +107,7 @@ set autowrite
 " 设置在状态行显示的信息
 set foldcolumn=0
 set foldmethod=indent 
-set foldlevel=3 
+set foldlevel=5 
 set foldenable              " 开始折叠
 " 不要使用vi的键盘模式，而是vim自己的
 set nocompatible
