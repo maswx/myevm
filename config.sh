@@ -1,13 +1,15 @@
 #!/bin/bash
 if [ -f ~/.vimrc ]; then
-	if [ -f ./.vimrc.old ]; then
-		echo error! please check and rm `pwd`/.vinrc.old
+	if [ -f ./vim/.vimrc.old ]; then
+		echo error! please check and rm `pwd`/vim/.vinrc.old
 		echo vimrc installation failed
 	else
-		cp ~/.vimrc .vimrc.old
+		cp ~/.vimrc ./vim/.vimrc.old
 		rm ~/.vimrc 
-		ln -s `pwd`/vimrc ~/.vimrc	
+		ln -s `pwd`/vim/vimrc ~/.vimrc	
 	fi
+else
+	ln -s `pwd`/vim/vimrc ~/.vimrc	
 fi
 
 scr_path=`pwd`/scripts/
