@@ -79,8 +79,12 @@ set imcmdline
 " 语法高亮                                                         
 syntax on                                                          
 " 深色背景                                                         
-
-color evening 
+colorscheme space-vim-dark
+" colorscheme wwdc16
+let g:space_vim_dark_background = 233
+set termguicolors
+hi LineNr ctermbg=NONE guibg=NONE
+set guifont=Courier_new:h16
 " 检测文件类型                                                     
 filetype on                                                        
 " 根据文件类型加载对应的插件                                       
