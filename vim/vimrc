@@ -50,9 +50,9 @@ inorea ilog [ log by <c-r>=$USER<cr>@<c-r>=strftime("%Y%m%d %H:%M")<cr>]:
 let $FILENAME=expand("%") " commit log
 cnorea clog  <ESC>:new<CR><ESC>10<C-W>-:edit .${FILENAME}.gitcmlog<CR> 
 " shift
-inoremap ( () <ESC><Left>i
-inoremap [ [] <ESC><Left>i
-inoremap { {} <ESC><Left>i
+"inoremap ( () <ESC><Left>i
+"inoremap [ [] <ESC><Left>i
+"inoremap { {} <ESC><Left>i
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

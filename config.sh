@@ -15,4 +15,6 @@ fi
 scr_path=`pwd`/scripts/
 grep -wq $scr_path ~/.bashrc && echo "scripts path is already configured" || echo "PATH=$scr_path:\$PATH" >> ~/.bashrc ; . ~/.bashrc
 
+cd vim 
+cp -rf ./color/ ~/.vim/
 
