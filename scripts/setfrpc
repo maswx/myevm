@@ -1,0 +1,22 @@
+#!/bin/bash
+# -*- coding: utf-8 -*-
+
+# 先看文件是否存在
+if [ ! -f $1/frpc ]; then
+	echo "指定路径文件$1/frpc不存在"
+	return 
+fi
+
+# 复制
+cp $1/frpc /usr/bin/ 
+
+# 判断文件夹存在
+if [ ! -d "/etc/frp" ];then
+	mkdir -p /etc/frp
+fi
+cp $1/frpc.ini /etc/frp/
+cp $1/systemd/frpc.service /etc/systemd/
+
+# 配置自动启动
+chmod +x /etc/systemd/frpc.service
+systemctl enable /etc/systemd/frpc.service
