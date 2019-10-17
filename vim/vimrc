@@ -53,8 +53,8 @@ cnorea clog  <ESC>:new<CR><ESC>10<C-W>-:edit .${FILENAME}.gitcmlog<CR>
 "inoremap ( () <ESC><Left>i
 "inoremap [ [] <ESC><Left>i
 "inoremap { {} <ESC><Left>i
-inorea alwn always @ (posedge sys_clk or negedge rst_n)<CR><BS>if(!rst_n)
-inorea alwp always @ (posedge sys_clk or posedge rst)<CR><BS>if(rst)
+inorea alwn always @ (posedge clk or negedge rst_n)<CR><BS>if(!rst_n)
+inorea alwp always @ (posedge clk or posedge rst)<CR><BS>if(rst)
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 ""实用设置
@@ -83,7 +83,7 @@ syntax on
 colorscheme space-vim-dark
 " colorscheme wwdc16
 let g:space_vim_dark_background = 233
-set termguicolors
+"set termguicolors
 hi LineNr ctermbg=NONE guibg=NONE
 set guifont=Courier_new:h16
 " 检测文件类型                                                     
@@ -170,6 +170,6 @@ set showmatch
 " 匹配括号高亮的时间（单位是十分之一秒）
 set matchtime=10
 " 光标移动到buffer的顶部和底部时保持3行距离
-set scrolloff=3
+set scrolloff=5
 " 为C程序提供自动缩进
 set smartindent
