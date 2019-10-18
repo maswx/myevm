@@ -32,7 +32,7 @@ func SetTitle()
 	endif
 	if &filetype == 'matlab'
 		call setline(1,"%========================================================================")
-		call setline(2,"%        author   : masx")
+		call setline(2,"%        author   : masw")
 		call setline(3,"%        email    : masw@masw.tech     ")
 		call setline(4,"%        creattime: ".strftime("%c"))
 		call setline(5,"%========================================================================")
