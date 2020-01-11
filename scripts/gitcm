@@ -1,6 +1,5 @@
 #!/bin/bash
 # -*- coding: utf-8 -*-
-clear
 clogfile=`find . .*.gitcmlog | grep -w '.\/.*.gitcmlog'` #找出./.*.gitcmlog文件
 newfile=`git status | grep -w 'new file:' | sed 's/new file://g'`
 modifile=`git status | grep -w 'modified:' | sed 's/modified://g'`
@@ -30,10 +29,10 @@ do
 	done
 done
 # 更新modified
-modifile=`git status | grep -w 'modified:' | sed 's/modified://g'`
-for modifilename in $modifile 
-do
-	#echo please add $modifilename\'s log file \(use command \':clog\' in vim normal mode\) or use comand git commit -m \"\" $modifilename
-	git commit -m "no any commit message. " \.\/$modifilename
-done
+####modifile=`git status | grep -w 'modified:' | sed 's/modified://g'`
+####for modifilename in $modifile 
+####do
+####	#echo please add $modifilename\'s log file \(use command \':clog\' in vim normal mode\) or use comand git commit -m \"\" $modifilename
+####	git commit -m "no any commit message. " \.\/$modifilename
+####done
 
