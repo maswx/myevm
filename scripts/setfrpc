@@ -15,8 +15,10 @@ if [ ! -d "/etc/frp" ];then
 	mkdir -p /etc/frp
 fi
 cp $1/frpc.ini /etc/frp/
-cp $1/systemd/frpc.service /etc/systemd/
+cp $1/systemd/frpc.service /etc/systemd/system/
 
 # 配置自动启动
-chmod +x /etc/systemd/frpc.service
-systemctl enable /etc/systemd/frpc.service
+chmod +x /etc/systemd/system/frpc.service
+systemctl enable /etc/systemd/system/frpc.service
+
+echo "run 'sudo reboot' please ! "
