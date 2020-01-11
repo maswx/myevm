@@ -13,7 +13,7 @@ func SetTitle()
 		call setline(5, "//========================================================================")
 	endif
 	if &filetype == 'python_'
-		call setline(1,"#!/usr/bin/python")
+		call setline(1,"#!/usr/bin/python3")
 		call setline(2,"# -*- coding: utf-8 -*-")
 		call setline(3,"#========================================================================")
 		call setline(4,"#        author   : masw")
@@ -39,6 +39,36 @@ func SetTitle()
 	endif
 	autocmd BufNewFile * normal G
 endfunc
+autocmd BufWrite *.v,*.[ch],*.sh,*.cpp,*.py,*.java,*.md call SetlastModifiedTimes()
+func SetlastModifiedTimes()
+	let res = search("LastModifiedTime : ",'n')
+	if res
+        " 获取当前光标位置
+        " let save_cursor = getcurpos()
+		let line = getline(res)
+		if &filetype == 'verilog'
+			let newtime = "//LastModifiedTime : ".strftime("%Y-%m-%d %H:%M:%S")
+		elseif &filetype == 'c'
+			let newtime = "  > LastModifiedTime : ".strftime("%Y-%m-%d %H:%M:%S")
+		elseif &filetype == 'h'
+			let newtime = "  > LastModifiedTime : ".strftime("%Y-%m-%d %H:%M:%S")
+		elseif &filetype == 'sh'
+			let newtime = "#LastModifiedTime : ".strftime("%Y-%m-%d %H:%M:%S")
+		elseif &filetype == 'cpp'
+			let newtime = "  > LastModifiedTime : ".strftime("%Y-%m-%d %H:%M:%S")
+		elseif &filetype == 'python'
+			let newtime = "#LastModifiedTime : ".strftime("%Y-%m-%d %H:%M:%S")
+		elseif &filetype == 'markdown'
+			let newtime = "LastModifiedTime : ".strftime("%Y-%m-%d %H:%M:%S")
+		elseif &filetype == 'vimwiki'
+			let newtime = "LastModifiedTime : ".strftime("%Y-%m-%d %H:%M:%S")
+		endif
+		let repl = substitute(line,".*$",newtime,"g")
+		call setline(res,repl)
+        " 跳转至原始光标位置
+        " call setpos('.', save_cursor)
+	endif
+endfunc
 
 " reopening a file                                                         
 if has("autocmd")                                                          
@@ -55,6 +85,33 @@ cnorea clog  <ESC>:new<CR><ESC>10<C-W>-:edit .${FILENAME}.gitcmlog<CR>
 "inoremap { {} <ESC><Left>i
 inorea alwn always @ (posedge clk or negedge rst_n)<CR><BS>if(!rst_n)
 inorea alwp always @ (posedge clk or posedge rst)<CR><BS>if(rst)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 ""实用设置
