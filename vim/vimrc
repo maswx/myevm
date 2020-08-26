@@ -86,7 +86,8 @@ cnorea clog  <ESC>:new<CR><ESC>10<C-W>-:edit .${FILENAME}.gitcmlog<CR>
 inorea alwn always @ (posedge clk or negedge rst_n)<CR><BS>if(!rst_n)
 inorea alwp always @ (posedge clk or posedge rst)<CR><BS>if(rst)
 
-
+nnoremap gj :tabn<cr>
+nnoremap gk :tabp<cr>
 
 
 
