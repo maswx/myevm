@@ -1,3 +1,18 @@
+call plug#begin('~/.vim/plugged')
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'mileszs/ack.vim'
+Plug 'tpope/vim-fugitive'
+Plug 'junegunn/vim-easy-align'
+Plug 'junegunn/gv.vim'
+"Plug 'airblade/vim-gitgutter'
+"Plug 'frazrepo/vim-rainbow'
+"Plug 'itchyny/lightline.vim'
+"Plug 'vim-scripts/taglist.vim'
+call plug#end()
+
+set rtp+=/usr/local/bin/fzf
+
 " 创建新文件时候自动执行
 autocmd BufNewFile *.v,*.[ch],*.cpp set filetype=class_c
 autocmd BufNewFile *.py set filetype=python_
@@ -95,6 +110,10 @@ nnoremap mj :tabm -1<cr>
 nnoremap mk :tabm +1<cr>
 
 
+let g:fzf_action={'enter':'tabnew'}
+
+nnoremap ff :Files ../../<cr>
+nnoremap fg :GFiles<cr>
 
 
 
