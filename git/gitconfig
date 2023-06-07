@@ -1,0 +1,30 @@
+[user]
+    email = 
+	name  = $USER
+
+[color]
+    ui = auto
+[core]
+    editor = vim
+    quotePath = false
+
+[difftool]
+	prompt = false
+
+[diff]
+    renames = copy
+    tool = vimdiff
+
+[merge]
+    tool = vimdiff
+
+[alias]
+    st = status
+    ci = commit
+    br = branch
+    co = checkout
+	ls = ls-files  
+	df = difftool
+
+
+
