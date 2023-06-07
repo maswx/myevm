@@ -1,5 +1,5 @@
 call plug#begin('~/.vim/plugged')
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } 
 Plug 'junegunn/fzf.vim'
 Plug 'mileszs/ack.vim'
 Plug 'tpope/vim-fugitive'
@@ -10,8 +10,8 @@ Plug 'junegunn/gv.vim'
 "Plug 'itchyny/lightline.vim'
 "Plug 'vim-scripts/taglist.vim'
 call plug#end()
-
-set rtp+=/usr/local/bin/fzf
+                                                                                                                                                              
+set rtp+=/usr/bin/fzf
 
 " 创建新文件时候自动执行
 autocmd BufNewFile *.v,*.[ch],*.cpp set filetype=class_c
@@ -22,35 +22,31 @@ autocmd BufNewFile *.v,*.py,*.m,*.[ch],*.sh,*.cpp exec ":call SetTitle()"
 func SetTitle()
 	if &filetype == 'class_c'
 		call setline(1, "//========================================================================")
-		call setline(2, "//        author   : masw")
-		call setline(3, "//        email    : masw@masw.tech     ")
-		call setline(4, "//        creattime: ".strftime("%c"))
-		call setline(5, "//========================================================================")
+		call setline(2, "//        author   : " . $USER )
+		call setline(3, "//        creattime: ".strftime("%c"))
+		call setline(4, "//========================================================================")
 	endif
 	if &filetype == 'python_'
 		call setline(1,"#!/usr/bin/python3")
 		call setline(2,"# -*- coding: utf-8 -*-")
 		call setline(3,"#========================================================================")
-		call setline(4,"#        author   : masw")
-		call setline(5,"#        email    : masw@masw.tech     ")
-		call setline(6,"#        creattime: ".strftime("%c"))
-		call setline(7,"#========================================================================")
+		call setline(4,"#        author   : " . $USER)
+		call setline(5,"#        creattime: ".strftime("%c"))
+		call setline(6,"#========================================================================")
 	endif
 	if &filetype == 'shell_'
 		call setline(1,"#!/bin/bash")
 		call setline(2,"# -*- coding: utf-8 -*-")
 		call setline(3,"#========================================================================")
-		call setline(4,"#        author   : masw")
-		call setline(5,"#        email    : masw@masw.tech     ")
-		call setline(6,"#        creattime: ".strftime("%c"))
-		call setline(7,"#========================================================================")
+		call setline(4,"#        author   : " . $USER)
+		call setline(5,"#        creattime: ".strftime("%c"))
+		call setline(6,"#========================================================================")
 	endif
 	if &filetype == 'matlab'
 		call setline(1,"%========================================================================")
-		call setline(2,"%        author   : masw")
-		call setline(3,"%        email    : masw@masw.tech     ")
-		call setline(4,"%        creattime: ".strftime("%c"))
-		call setline(5,"%========================================================================")
+		call setline(2,"%        author   : " . $USER)
+		call setline(3,"%        creattime: ".strftime("%c"))
+		call setline(4,"%========================================================================")
 	endif
 	autocmd BufNewFile * normal G
 endfunc
@@ -102,6 +98,7 @@ inorea alwn always @ (posedge clk or negedge rst_n)<CR><BS>if(!rst_n)
 inorea alwp always @ (posedge clk or posedge rst)<CR><BS>if(rst)
 
 nnoremap gf :tabnew <cfile><cr>
+nnoremap gv :tabnew <cfile>.v<cr>
 
 nnoremap gj :tabn<cr>
 nnoremap gk :tabp<cr>
@@ -109,10 +106,8 @@ nnoremap gk :tabp<cr>
 nnoremap mj :tabm -1<cr>
 nnoremap mk :tabm +1<cr>
 
-
 let g:fzf_action={'enter':'tabnew'}
-
-nnoremap ff :Files ../../<cr>
+nnoremap ff :Files <cr>
 nnoremap fg :GFiles<cr>
 
 
