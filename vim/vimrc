@@ -107,7 +107,13 @@ nnoremap mj :tabm -1<cr>
 nnoremap mk :tabm +1<cr>
 
 let g:fzf_action={'enter':'tabnew'}
+<<<<<<< Updated upstream
 nnoremap ff :Files <cr>
+=======
+
+nnoremap ff :Files <cr>
+nnoremap f. :Files ../<cr>
+>>>>>>> Stashed changes
 nnoremap fg :GFiles<cr>
 
 
@@ -188,7 +194,7 @@ set autowrite
 " 设置在状态行显示的信息
 set foldcolumn=0
 set foldmethod=indent 
-set foldlevel=5 
+set foldlevel=50
 set foldenable              " 开始折叠
 " 不要使用vi的键盘模式，而是vim自己的
 set nocompatible
