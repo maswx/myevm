@@ -11,6 +11,8 @@ mv myevm ~/.myevm
 cd ~/.myevm
 chmod +x config.sh
 source config.sh
+vim 
+:PlugInstall
 ```
 
 ### How to USE
