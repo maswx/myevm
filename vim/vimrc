@@ -107,14 +107,15 @@ nnoremap mj :tabm -1<cr>
 nnoremap mk :tabm +1<cr>
 
 let g:fzf_action={'enter':'tabnew'}
-<<<<<<< Updated upstream
-nnoremap ff :Files <cr>
-=======
 
 nnoremap ff :Files <cr>
 nnoremap f. :Files ../<cr>
->>>>>>> Stashed changes
 nnoremap fg :GFiles<cr>
+
+xmap ga <Plug>(EasyAlign)
+nmap ga <Plug>(EasyAlign)
+xmap gx <Plug>(EasyAlign)<c-x>
+nmap gx <Plug>(EasyAlign)<c-x>
 
 
 
